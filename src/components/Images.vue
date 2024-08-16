@@ -11,7 +11,6 @@
             <div class="overlay"> Image 1 </div>
         </div>
 
-
         
             <div class="gallery-item"> 
             <img src="@/assets/pessoa2.jpg" alt="">
@@ -74,12 +73,6 @@
 
        
             <div class="gallery-item"> 
-            <img src="@/assets/pessoa11.jpg" alt="">
-            <div class="overlay"> Image 11 </div>
-        </div>
-
-       
-            <div class="gallery-item"> 
             <img src="@/assets/pessoa12.jpg" alt="">
             <div class="overlay"> Image 12 </div>
         </div>
@@ -126,35 +119,34 @@
 
 <style scoped>
     .gallery {
-    display: flex;
+    position: relative;
+    /*display: inline block; */
+    display: flex; 
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
 }
 
 .gallery-item img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
+    width: 120px;
+    height: 120px;
+    transition: transform 0.4s ease;
+    position: relative;
 }
 
 .gallery-item:hover img {
     transform: scale(1.1);
+
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para melhor legibilidade */
+    text-align: center; /* Centraliza o texto */
 }
 
 .gallery-item:hover .overlay {
