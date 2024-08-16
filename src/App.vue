@@ -31,6 +31,10 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  /*border: 0.5px solid rgba(0, 0, 0, 0.5); */
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
+  /*background-color: rgba(0, 0, 0, 0.1);  */
 }
 
 nav {
