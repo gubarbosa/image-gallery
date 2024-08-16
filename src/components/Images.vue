@@ -127,26 +127,45 @@
     padding: 20px;
 }
 
-.gallery-item img {
+.gallery-item {
+    position: relative;
     width: 120px;
     height: 120px;
-    transition: transform 0.4s ease;
-    position: relative;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
-
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    position: absolute; /* Torna a imagem um plano de fundo, permitindo que o overlay fique sobre ela */
+    top: 0;
+    left: 0;
 }
 
 .overlay {
-    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para melhor legibilidade */
-    text-align: center; /* Centraliza o texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
 }
 
 .gallery-item:hover .overlay {
