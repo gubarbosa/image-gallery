@@ -43,8 +43,10 @@ footer {
   text-align: center;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Remova isso se não precisar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Para dar uma sombra */
 }
+
 
 footer.hidden {
   transform: translateY(-100%);
