@@ -25,27 +25,33 @@ const images = ref(generateImageList(18));
   </div>
 </template>
 
-<!--<style scoped>
+<style scoped>
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas de largura igual */
-  gap: 10px; /* Espaçamento entre imagens */
-  padding: 20px;
-  box-sizing: border-box; /* Inclui padding e bordas no tamanho total do elemento */
+  position: relative;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  top: 100px;
 }
 
 .gallery-item {
   position: relative;
-  width: 100%;
-  height: 120px; /* Ajuste conforme necessário */
+  width: 120px;
+  height: 120px;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem cubra o contêiner */
   transition: transform 0.4s ease;
+  position: absolute; 
+  top: 0;
+  left: 0;
 }
 
 .overlay {
@@ -72,5 +78,5 @@ const images = ref(generateImageList(18));
 .gallery-item:hover .overlay {
   opacity: 1;
 }
-</style>  -->
+</style>
 
