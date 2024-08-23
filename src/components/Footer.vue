@@ -43,7 +43,7 @@ footer {
   text-align: center;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  margin-bottom: 20px; /* Remova isso se não precisar */
+  
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Para dar uma sombra */
 }
 
@@ -54,7 +54,7 @@ footer.hidden {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
 }
 
