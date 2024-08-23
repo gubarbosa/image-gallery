@@ -46,12 +46,7 @@ const images = ref(generateImageList(18));
   <UploadFile></UploadFile>
 
   <div class="gallery">
-    <!-- Imagens novas adicionadas através do UploadFile -->
-    <div class="gallery-item" v-for="(img, index) in galleryImg" :key="index + images.length">
-      <img :src="img.src" :alt="img.name">
-      <p>{{ img.name }}</p>
-      <button @click="handleRemove(index)">Remove</button>
-    </div>
+
 
     <!-- Botão de adicionar imagens -->
     <div class="add-button">
@@ -64,15 +59,24 @@ const images = ref(generateImageList(18));
       <img :src="image.src" :alt="'Image ' + (index + 1)">
       <div class="overlay">Image {{ index + 1 }}</div>
     </div>
+
+    <!-- Imagens novas adicionadas através do UploadFile -->
+    <div class="gallery-item" v-for="(img, index) in galleryImg" :key="index + images.length">
+      <img :src="img.src" :alt="img.name">
+      <p>{{ img.name }}</p>
+      <button @click="handleRemove(index)">Remove</button>
+    </div>
   </div>
 </template>
 
-<!--<style scoped>
+<style scoped>
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 colunas de largura igual */
   gap: 10px; /* Espaçamento entre imagens */
   padding: 20px;
+  padding-top: 80px; /* Ajuste conforme a altura do seu footer */
+  box-sizing: border-box;
   box-sizing: border-box; /* Inclui padding e bordas no tamanho total do elemento */
 }
 
