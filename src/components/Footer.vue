@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer :class="{ hidden: isHidden }">
     <img alt="image gallery logo" class="logo" src="@/assets/anonymous.png" width="50" height="50" />
     <nav>
       <RouterLink to="/">Home</RouterLink>
@@ -10,6 +10,26 @@
   </footer>
 </template>
 
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isHidden = ref(false);
+let lastScrollTop = 0;
+
+function handleScroll() {
+  const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  isHidden.value = currentScrollTop > lastScrollTop;
+  lastScrollTop = currentScrollTop;
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
 
 <style scoped>
 footer {
@@ -21,6 +41,12 @@ footer {
   color: #fff;
   padding: 1rem;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+footer.hidden {
+  transform: translateY(-100%);
 }
 
 .logo {
@@ -46,5 +72,3 @@ nav a:first-of-type {
   border: 0;
 }
 </style>
-
-
