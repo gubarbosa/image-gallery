@@ -45,12 +45,7 @@ const images = ref(generateImageList(18));
  
 
   <div class="gallery">
-    <!-- Imagens novas adicionadas através do UploadFile -->
-    <div class="gallery-item" v-for="(img, index) in galleryImg" :key="index + images.length">
-      <img :src="img.src" :alt="img.name">
-      <p>{{ img.name }}</p>
-      <button @click="handleRemove(index)">Remove</button>
-    </div>
+
 
     <!-- Botão de adicionar imagens -->
     <div class="add-button">
@@ -62,6 +57,13 @@ const images = ref(generateImageList(18));
     <div class="gallery-item" v-for="(image, index) in images" :key="index">
       <img :src="image.src" :alt="'Image ' + (index + 1)">
       <div class="overlay">Image {{ index + 1 }}</div>
+    </div>
+
+        <!-- Imagens novas adicionadas através do UploadFile -->
+    <div class="gallery-item" v-for="(img, index) in galleryImg" :key="index + images.length">
+      <img :src="img.src" :alt="img.name">
+      <p>{{ img.name }}</p>
+      <button @click="handleRemove(index)">Remove</button>
     </div>
   </div>
 </template>
