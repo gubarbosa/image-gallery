@@ -1,0 +1,76 @@
+<script setup>
+  import { ref } from 'vue';
+  import Footer from '@/components/Footer.vue';
+
+  function generateImageList(count) {
+  const images = [];
+  for (let i = 1; i <= count; i++) {
+    images.push({ src: new URL(`../assets/gallery_img/pessoa${i}.jpg`, import.meta.url).href });
+  }
+  return images;
+}
+
+const images = ref(generateImageList(18));
+</script>
+
+<template>
+  <Footer></Footer>
+  <div class="gallery">
+    <div class="gallery-item" v-for="(image, index) in images" :key="index"> 
+      <img :src="image.src" :alt="'Image ' + (index + 1)">
+      <div class="overlay">Image {{ index + 1 }}</div>
+    </div>
+
+    <!-- Estas imagens adicionais podem ser removidas, pois já estão incluídas no loop dinâmico -->
+  </div>
+</template>
+
+<!--<style scoped>
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas de largura igual */
+  gap: 10px; /* Espaçamento entre imagens */
+  padding: 20px;
+  box-sizing: border-box; /* Inclui padding e bordas no tamanho total do elemento */
+}
+
+.gallery-item {
+  position: relative;
+  width: 100%;
+  height: 120px; /* Ajuste conforme necessário */
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra o contêiner */
+  transition: transform 0.4s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+</style>  -->
+
