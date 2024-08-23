@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import Footer from '@/components/Footer.vue';
-import UploadFile from '@/components/UploadFile.vue';
 
 const galleryImg = ref([]);
 let imageCount = 19; // Começa em 19, assumindo que você já tem 18 imagens.
@@ -43,7 +42,7 @@ const images = ref(generateImageList(18));
 
 <template>
   <Footer></Footer>
-  <UploadFile></UploadFile>
+ 
 
   <div class="gallery">
     <!-- Imagens novas adicionadas através do UploadFile -->
@@ -73,7 +72,7 @@ const images = ref(generateImageList(18));
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 20px;
-  padding-top: 80px; /* Ajuste conforme a altura do seu footer */
+  padding-top: 110px; /* Ajuste conforme a altura do seu footer */
   box-sizing: border-box;
 }
 
