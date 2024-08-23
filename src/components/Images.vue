@@ -9,7 +9,7 @@ function generateImageList(count) {
   return images;
 }
 
-const images = ref(generateImageList(18));
+const images = ref(generateImageList(20));
 </script>
 
 <template>
