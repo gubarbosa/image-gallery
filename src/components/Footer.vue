@@ -43,6 +43,7 @@ footer {
   text-align: center;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  margin-bottom: 20px;
 }
 
 footer.hidden {
