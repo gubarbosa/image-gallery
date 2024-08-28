@@ -50,7 +50,7 @@ const images = ref(generateImageList(18));
     <!-- Botão de adicionar imagens -->
     <div class="add-button">
       <input type="file" accept="image/jpeg" @change="handleInsert" multiple>
-      <button>Add Image</button>
+
     </div>
 
     <!-- Imagens já existentes na galeria -->
@@ -63,7 +63,6 @@ const images = ref(generateImageList(18));
     <div class="gallery-item" v-for="(img, index) in galleryImg" :key="index + images.length">
       <img :src="img.src" :alt="img.name">
       <p>{{ img.name }}</p>
-      <button @click="handleRemove(index)">Remove</button>
     </div>
   </div>
 </template>
@@ -72,24 +71,52 @@ const images = ref(generateImageList(18));
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
   padding-top: 110px; /* Ajuste conforme a altura do seu footer */
   box-sizing: border-box;
+  justify-items: center; /* Centraliza os itens horizontalmente */
+  align-items: center;   /* Centraliza os itens verticalmente */
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 .gallery-item {
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 150px; /* Aumentado para melhor visualização */
   overflow: hidden;
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+.gallery-item:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  border-radius: 8px; /* Mesmos cantos arredondados da galeria */
+  transition: opacity 0.4s ease; /* Transição suave para a opacidade */
 }
 
 .overlay {
@@ -98,23 +125,20 @@ const images = ref(generateImageList(18));
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo mais escuro */
   opacity: 0;
   transition: opacity 0.3s ease;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto mais pronunciada */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
+  border-radius: 8px; /* Mesmos cantos arredondados da galeria */
 }
 
 .gallery-item:hover .overlay {
-  opacity: 1;
+  opacity: 1; /* Mostra overlay ao passar o mouse */
 }
 
 .add-button {
@@ -123,9 +147,20 @@ const images = ref(generateImageList(18));
   margin-top: 20px;
 }
 
-.add-button button {
-  padding: 10px 20px;
-  font-size: 16px;
+
+.add-button label {
+  padding: 12px 24px; /* Aumentado para um botão mais fácil de clicar */
+  font-size: 18px; /* Tamanho da fonte aumentado */
+  background-color: #007BFF;
+  color: white;
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
 }
+
+.add-button label:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Efeito de zoom no botão ao passar o mouse */
+}
+
 </style>
