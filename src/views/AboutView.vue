@@ -12,13 +12,11 @@
 <style scoped>
 @media (min-width: 1024px) {
   .about {
-    
-    min-height: 100vh;
+    padding: 50px;
+    font-size: 17.5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
   }
 }
 </style>

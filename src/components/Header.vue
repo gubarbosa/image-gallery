@@ -12,8 +12,8 @@
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/images">Images</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/gallery">Gallery</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
     </nav>
   </div>
   </header>
