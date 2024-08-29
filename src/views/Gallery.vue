@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import Footer from '@/components/Footer.vue';
 
 const galleryImg = ref([]);
 let imageCount = 19; // Começa em 19, assumindo que você já tem 18 imagens.
@@ -41,7 +40,6 @@ const images = ref(generateImageList(18));
 </script>
 
 <template>
-  <Footer></Footer>
  
 
   <div class="gallery">
@@ -56,7 +54,7 @@ const images = ref(generateImageList(18));
     <!-- Imagens já existentes na galeria -->
     <div class="gallery-item" v-for="(image, index) in images" :key="index">
       <img :src="image.src" :alt="'Image ' + (index + 1)">
-      <div class="overlay">Image {{ index + 1 }}</div>
+      
     </div>
 
         <!-- Imagens novas adicionadas através do UploadFile -->
@@ -69,19 +67,19 @@ const images = ref(generateImageList(18));
 
 <style scoped>
 .gallery {
+  width: auto;
+  height: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 2fr);
   gap: 15px;
   padding: 20px;
   padding-top: 110px; /* Ajuste conforme a altura do seu footer */
-  box-sizing: border-box;
-  justify-items: center; /* Centraliza os itens horizontalmente */
-  align-items: center;   /* Centraliza os itens verticalmente */
 }
 
 @media (max-width: 1024px) {
   .gallery {
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    
   }
 }
 
@@ -98,6 +96,7 @@ const images = ref(generateImageList(18));
 }
 
 .gallery-item {
+  text-align: center;
   position: relative;
   width: 100%;
   height: 150px; /* Aumentado para melhor visualização */
@@ -117,24 +116,6 @@ const images = ref(generateImageList(18));
   object-fit: cover;
   border-radius: 8px; /* Mesmos cantos arredondados da galeria */
   transition: opacity 0.4s ease; /* Transição suave para a opacidade */
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Fundo mais escuro */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto mais pronunciada */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 8px; /* Mesmos cantos arredondados da galeria */
 }
 
 .gallery-item:hover .overlay {

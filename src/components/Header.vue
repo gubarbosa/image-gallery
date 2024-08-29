@@ -25,6 +25,8 @@
 header {
   line-height: 1.5;
   max-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .logo {
